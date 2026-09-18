@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado Imperio | Sua compra mais simples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .product-image { overflow: hidden; }
+    .product-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+    .product:hover .product-image img { transform: scale(1.06); }
+    .cart-emoji { overflow: hidden; }
+    .cart-emoji img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .social-links a.social-handle { display: block; width: auto; height: auto; border: 0; border-radius: 0; color: #e8f0d7; font-size: 13px; font-weight: 600; line-height: 34px; }
+    .footer-links address { color: #c0cfbe; font-size: 13px; line-height: 1.55; font-style: normal; margin-top: 12px; }
+    /* Tema monocromático */
+    :root { --green: #111111; --lime: #ffffff; --cream: #f7f7f7; --ink: #111111; --muted: #6e6e6e; --line: #dddddd; }
+    .brand-mark { background: #111; color: #fff; }
+    .hero { background: #f1f1f1; }
+    .hero-art { background: #171717; }
+    .orange-shape { background: #fff; opacity: .11; }
+    .hero h1 em, .eyebrow, .floating-card { color: #111; }
+    .eyebrow { color: #555; }
+    .hero-text { color: #5c5c5c; }
+    .leaf { color: #fff; opacity: .18; }
+    .basket, .basket-food { filter: grayscale(1) drop-shadow(0 22px 11px #0008); }
+    .floating-card { background: #fff; }
+    .primary-button, .checkout, .filter.active, .filter:hover { background: #111; border-color: #111; color: #fff; }
+    .add { background: #efefef; color: #111; }
+    .add:hover { background: #111; color: #fff; }
+    .site-footer { background: #111; color: #fff; }
+    .footer-brand .brand-mark { background: #fff; color: #111; }
+    .footer-links > p { color: #fff; }
+    .footer-brand p, .footer-links address { color: #c7c7c7; }
+    .social-links a { border-color: #aaa; }
+    .whatsapp { background: #111; box-shadow: 0 8px 25px #0004; }
+    .whatsapp span { color: #111; }
+    .hero-logo-art { display: grid; place-items: center; background: #111; }
+    .hero-logo-image { width: min(390px, 82%); aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 18px 42px #0008; }
+    .logo-frame { width: min(330px, 72%); aspect-ratio: 1; border: 1px solid #777; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; position: relative; }
+    .logo-frame::before, .logo-frame::after { content: ''; position: absolute; width: 14px; height: 14px; border-color: #fff; }
+    .logo-frame::before { top: -1px; left: -1px; border-top: 3px solid; border-left: 3px solid; }
+    .logo-frame::after { right: -1px; bottom: -1px; border-right: 3px solid; border-bottom: 3px solid; }
+    .logo-monogram { font: 800 clamp(60px, 9vw, 105px) "Playfair Display", serif; letter-spacing: -9px; line-height: .75; margin-left: -8px; }
+    .logo-line { width: 48px; height: 2px; background: #fff; margin: 25px 0 17px; }
+    .logo-frame p { text-transform: uppercase; letter-spacing: 4px; line-height: 1.35; font-size: 15px; margin: 0; }
+    .logo-frame p b { font-size: 19px; }
+    .logo-frame small { letter-spacing: 2px; margin-top: 20px; font-size: 9px; color: #bbb; }
+    .payment-title { margin: 18px 0 9px; color: #69756c; text-transform: uppercase; letter-spacing: 1px; font-size: 10px; font-weight: 800; }
+    .payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    .payment-option { display: grid; justify-items: center; gap: 3px; padding: 8px 3px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #686868; font: 700 10px "DM Sans"; cursor: pointer; }
+    .payment-option span { font-size: 17px; line-height: 18px; }
+    .payment-option.selected { border-color: #111; background: #111; color: #fff; }
+    /* Ajustes extras para telas menores */
+    @media (max-width: 980px) {
+      .hero-copy { padding-right: 38px; }
+      .hero h1 { font-size: 48px; }
+      .products { grid-template-columns: repeat(3, 1fr); }
+      .benefits { gap: 35px; }
+    }
+    @media (max-width: 620px) {
+      body { overflow-x: hidden; }
+      .topbar { height: 68px; }
+      .brand { font-size: 16px; }
+      .brand-mark { width: 33px; height: 33px; }
+      .hero-copy { padding: 45px 22px; }
+      .hero h1 { font-size: clamp(36px, 11vw, 46px); }
+      .hero-text { font-size: 15px; }
+      .hero-art { min-height: 205px; }
+      .logo-frame { width: 190px; }
+      .logo-monogram { font-size: 63px; }
+      .logo-line { margin: 16px 0 11px; }
+      .logo-frame p { font-size: 10px; letter-spacing: 3px; }
+      .logo-frame p b { font-size: 13px; }
+      .logo-frame small { margin-top: 10px; font-size: 7px; }
+      .benefits { grid-template-columns: 1fr; padding: 24px 28px; gap: 16px; }
+      .catalog { margin: 35px auto 55px; padding: 0 16px; }
+      .section-heading h2 { font-size: 28px; }
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .product { padding: 9px; border-radius: 12px; }
+      .product-image { height: 115px; }
+      .product-info { padding-top: 10px; }
+      .cart-panel { width: 100%; }
+      .cart-header { padding: 24px 20px 18px; }
+      .cart-items { padding: 8px 20px; }
+      .cart-summary { padding: 16px 20px 22px; }
+      .site-footer { padding: 34px 24px 82px; }
+    }
+    @media (max-width: 360px) {
+      .products { grid-template-columns: 1fr; }
+      .product-image { height: 175px; }
+      .cart-item { grid-template-columns: 50px 1fr auto; gap: 8px; }
+      .cart-emoji { height: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio"><span class="brand-mark">M</span><span>Mercado <b>Imperio</b></span></a>
+    <nav><a href="#produtos">Produtos</a><a href="#sobre">Sobre nós</a></nav>
+    <button class="cart-link" id="openCart" aria-label="Abrir carrinho">🛒 <span>Carrinho</span><strong id="cartCount">0</strong></button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Compras rápidas, escolhas melhores</p>
+        <h1>O Melhor do Sabor, <em>perto de você.</em></h1>
+        <p class="hero-text">Produtos selecionados para a sua casa, com transparência de estoque em tempo real.</p>
+        <a class="primary-button" href="#produtos">Ver produtos <span>→</span></a>
+      </div>
+      <div class="hero-art hero-logo-art" aria-hidden="true"><img class="hero-logo-image" src="img.imperio.jpeg" alt="" /></div>
+    </section>
+
+    <section class="benefits" id="sobre">
+      <div><span></span><p><b>Entrega rápida</b><small>Na sua porta</small></p></div>
+      <div><span></span><p><b>Produtos frescos</b><small>Qualidade selecionada</small></p></div>
+      <div><span></span><p><b>Compra segura</b><small>Dados protegidos</small></p></div>
+    </section>
+
+    <section class="catalog" id="produtos">
+      <div class="section-heading"><div><p class="eyebrow">Nossa seleção</p><h2>Para encher sua mesa</h2></div><p id="stockMessage">Clique em um item para adicionar ao carrinho.</p></div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="Todos">Todos</button>
+        <button class="filter" data-category="Frutas">Frutas</button>
+        <button class="filter" data-category="Verduras">Verduras</button>
+        <button class="filter" data-category="Mercearia">Mercearia</button>
+      </div>
+      <div class="products" id="productGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark">M</span><span>Mercado <b>Imperio</b></span></a><p>Produtos selecionados para uma compra mais leve, fresca e prática.</p></div>
+    <div class="footer-links"><p>Atendimento</p><a href="https://wa.me/5551993417271?text=Olá%2C%20gostaria%20de%20falar%20com%20o%20Mercado%20Imperio." target="_blank" rel="noopener">WhatsApp · (51) 99341-7271</a><address>Av. Franklin Roosevelt, 330<br>Porto Alegre, Rio Grande do Sul</address></div>
+    <div class="footer-links"><p>Siga o Mercado Imperio</p><div class="social-links"><a href="https://www.instagram.com/mercado.imperio08/" target="_blank" rel="noopener" aria-label="Instagram Mercado Imperio">◎</a><a class="social-handle" href="https://www.instagram.com/mercado.imperio08/" target="_blank" rel="noopener">@mercado.imperio08</a></div></div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/5551993417271?text=Olá%2C%20gostaria%20de%20falar%20com%20o%20Mercado%20Imperio." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><span>☏</span><b>Fale conosco</b></a>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrinho de compras">
+    <div class="cart-header"><div><p class="eyebrow">Seu pedido</p><h2>Meu carrinho</h2></div><button class="close" id="closeCart" aria-label="Fechar carrinho">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><b id="subtotal">R$ 0,00</b></div>
+      <div><span>Entrega</span><b id="delivery">Grátis</b></div>
+      <div class="total"><span>Total</span><strong id="total">R$ 0,00</strong></div>
+      <p class="payment-title">Forma de pagamento</p>
+      <div class="payment-options" id="paymentOptions">
+        <button class="payment-option selected" data-payment="Pix"><span>◆</span>Pix</button>
+        <button class="payment-option" data-payment="Débito"><span>▣</span>Débito</button>
+        <button class="payment-option" data-payment="Crédito"><span>▣</span>Crédito</button>
+      </div>
+      <button class="checkout" id="checkout">Finalizar pedido <span>→</span></button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
