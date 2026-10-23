@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sites profissionais, cardápios digitais e soluções web para comércios locais. Solicite seu orçamento.">
+  <title>Marri Dev | Seu negócio merece estar online</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Marri Dev, início"><span class="brand-mark">&lt;/&gt;</span> Marri<span>Dev</span></a>
+    <nav aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a class="nav-cta" href="#orcamento">Pedir orçamento</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">TECNOLOGIA PARA NEGÓCIOS LOCAIS</p>
+        <h1>Seu negócio merece <span>brilhar na internet.</span></h1>
+        <p class="hero-text">Sites modernos, cardápios digitais e soluções práticas para apresentar sua marca, facilitar pedidos e conquistar novas oportunidades.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#orcamento">Quero um orçamento <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#servicos">Conhecer serviços</a>
+        </div>
+        <div class="trust-line"><span class="dot"></span> Atendimento inicial rápido e personalizado</div>
+      </div>
+      <div class="hero-card" aria-label="Exemplo ilustrativo de um projeto digital">
+        <div class="window-bar"><i></i><i></i><i></i><span>seunegocio.com.br</span></div>
+        <div class="mockup-content">
+          <div class="mockup-tag">SUA MARCA, SUA VITRINE</div>
+          <h2>Mais presença.<br>Mais possibilidades.</h2>
+          <p>Uma experiência digital pensada para seus clientes.</p>
+          <div class="mockup-button">Ver produtos <span>→</span></div>
+          <div class="mockup-stats"><div><strong>24/7</strong><small>Vitrine online</small></div><div><strong>Fácil</strong><small>Contato direto</small></div></div>
+        </div>
+        <div class="floating-chip"><span>✦</span> Ideias que viram projetos</div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="section-heading"><p class="eyebrow">COMO POSSO AJUDAR</p><h2>Soluções digitais para <span>fazer seu negócio avançar.</span></h2><p>Escolha o que faz sentido para sua empresa. Vamos conversar sobre a melhor solução para sua necessidade.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><div class="service-icon">⌘</div><h3>Sites profissionais</h3><p>Apresente sua empresa, seus serviços e seus diferenciais em uma página clara, bonita e adaptada ao celular.</p><a href="#orcamento" data-service="Site profissional">Quero um site <span>↗</span></a></article>
+        <article class="service-card featured"><div class="service-icon">☷</div><h3>Cardápios digitais</h3><p>Mostre lanches, hambúrgueres, bebidas e preços em um cardápio fácil de consultar e compartilhar.</p><a href="#orcamento" data-service="Cardápio digital">Criar meu cardápio <span>↗</span></a></article>
+        <article class="service-card"><div class="service-icon">☏</div><h3>WhatsApp e pedidos</h3><p>Facilite o contato com botões e mensagens preparadas para seus clientes chegarem até você.</p><a href="#orcamento" data-service="Integração com WhatsApp">Facilitar meus pedidos <span>↗</span></a></article>
+      </div>
+    </section>
+
+    <section class="process" id="como-funciona">
+      <div class="process-inner"><div><p class="eyebrow">SIMPLES E DIRETO</p><h2>Da sua ideia ao próximo passo.</h2><p>Você conta o que precisa. Eu entendo o objetivo e preparo uma proposta para seu negócio.</p></div>
+        <ol class="steps"><li><span>01</span><div><h3>Conte sua ideia</h3><p>Escolha o serviço e explique brevemente seu objetivo.</p></div></li><li><span>02</span><div><h3>Receba o contato</h3><p>Suas informações ficam organizadas para preparar o atendimento.</p></div></li><li><span>03</span><div><h3>Solicite seu orçamento</h3><p>Alinhamos os detalhes antes de definir prazo e investimento.</p></div></li></ol>
+      </div>
+    </section>
+
+    <section class="section quote-section" id="orcamento">
+      <div class="quote-intro"><p class="eyebrow">VAMOS CONVERSAR?</p><h2>Seu próximo projeto começa <span>com uma mensagem.</span></h2><p>Responda às perguntas abaixo para organizar sua solicitação de orçamento.</p><div class="quote-note"><span>✓</span> Sem compromisso. Primeiro, vamos entender o que você precisa.</div></div>
+      <form class="quote-form" id="quote-form">
+        <label for="nome">Como podemos chamar você?</label><input id="nome" name="nome" autocomplete="name" placeholder="Seu nome" required>
+        <label for="negocio">Qual é o nome do seu negócio?</label><input id="negocio" name="negocio" placeholder="Nome da empresa ou negócio" required>
+        <label for="tipo">Qual solução você procura?</label><select id="tipo" name="tipo" required><option value="">Selecione uma opção</option><option>Site profissional</option><option>Cardápio digital</option><option>Integração com WhatsApp</option><option>Mais de uma solução</option><option>Quero uma orientação</option></select>
+        <label for="detalhes">Conte um pouco do que você precisa</label><textarea id="detalhes" name="detalhes" rows="4" placeholder="Ex.: quero divulgar meus produtos e receber pedidos pelo WhatsApp."></textarea>
+        <button class="button primary submit-button" type="submit">Preparar minha solicitação <span aria-hidden="true">↗</span></button>
+        <p class="form-help" id="form-status" role="status">Ao continuar, você poderá revisar a mensagem antes de enviá-la.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#inicio"><span class="brand-mark">&lt;/&gt;</span> Marri<span>Dev</span></a><p>Ideias digitais, feitas para aproximar seu negócio dos clientes.</p><small>© <span id="year"></span> Marri Dev. Projeto de portfólio.</small></footer>
+</body>
+</html>
